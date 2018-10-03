@@ -8,15 +8,7 @@
 
 
 
-void le(int *v, int n){
-    int i, r;
-    for(i=0; i<n; i++){
-        scanf("%d ",&v[i]);
-    }
-    
-}
-
-int soma(){
+int sum1(){
     int i,j,r;
     
     scanf("%d %d",&i,&j);
@@ -26,7 +18,7 @@ int soma(){
     return r;
 }
 
-int soma2(){
+int sum2(){
     int a,b,c,r;
     scanf("%d %d %d",&a, &b, &c);
     r = a+b+c;
@@ -61,11 +53,11 @@ int main(){
     while(n!=0){
         
         if(n == 1){
-            x = soma();
+            x = sum1();
             if (x < lowest) lowest = x;
             
         } else if (n == 2){
-            x = soma2();
+            x = sum2();
             if(x < lowest) lowest = x;
             
         } else if (n == 3){
