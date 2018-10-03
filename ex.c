@@ -14,6 +14,16 @@ void le(int *v, int n){
     
 }
 
+void soma(){
+    int i,j;
+    scanf("%d",&i);
+    scanf("%d",&j);
+    
+    printf("%d\n",i+j);
+    
+    
+}
+
 
 int main(){
     
@@ -21,10 +31,12 @@ int main(){
     int *v;
     
     scanf("%d",&n);
-    printf("%d\n",n);
     
+    if(n == 1){
+        soma();
+    }
     
-    
+
 }
 
 
