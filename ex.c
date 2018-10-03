@@ -16,7 +16,7 @@ void le(int *v, int n){
 
 void soma(){
     int i,j;
-    scanf("%d",&i &j);
+    scanf("%d %d",&i,&j);
     
     printf("%d\n",i+j);
 }
@@ -27,6 +27,15 @@ void soma2(){
     
     
     printf("%d\n",a+b+c);
+}
+
+int mult(){
+    int a,b,r;
+    scanf("%d %d",&a, &b);
+    
+    r = a*b;
+    printf("%d",r);
+    return r;
 }
 
 
@@ -40,10 +49,18 @@ int main(){
     printf("Operação? ");
     scanf("%d",&n);
     
-    if(n == 1){
-        soma();
-    } else if (n == 2){
-        soma2();
+    while(n!=0){
+        
+        if(n == 1){
+            soma();
+        } else if (n == 2){
+            soma2();
+        } else if (n == 3){
+            mult();
+        }
+        
+        printf("Operação? ");
+        scanf("%d",&n);
     }
     
 
