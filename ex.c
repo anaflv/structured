@@ -7,26 +7,30 @@
 
 
 void le(int *v, int n){
-    int i;
+    int i, r;
     for(i=0; i<n; i++){
         scanf("%d ",&v[i]);
     }
     
 }
 
-void soma(){
-    int i,j;
-    scanf("%d %d",&i,&j);
+int soma(){
+    int i,j,r;
     
-    printf("%d\n",i+j);
+    scanf("%d %d",&i,&j);
+    r = i+j;
+    printf("%d",r);
+    
+    return r;
 }
 
-void soma2(){
-    int a,b,c;
+int soma2(){
+    int a,b,c,r;
     scanf("%d %d %d",&a, &b, &c);
+    r = a+b+c;
+    printf("%d",r);
     
-    
-    printf("%d\n",a+b+c);
+    return r;
 }
 
 int mult(){
@@ -43,27 +47,37 @@ int mult(){
 
 int main(){
     
-    int n;
+    int n, x, lowest;
     int *v;
     
     printf("Operação? ");
     scanf("%d",&n);
     
+    
+    lowest = 10000;
+    
     while(n!=0){
         
         if(n == 1){
-            soma();
+            x = soma();
+            if (x < lowest) lowest = x;
+            
         } else if (n == 2){
-            soma2();
+            x = soma2();
+            if(x < lowest) lowest = x;
+            
         } else if (n == 3){
-            mult();
+            x = mult();
+            if(x < lowest) lowest = x;
+            
         }
         
-        printf("Operação? ");
+        printf("\nOperação? ");
         scanf("%d",&n);
     }
     
-
+    printf("%d",lowest);
+    
 }
 
 
