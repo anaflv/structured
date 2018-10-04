@@ -12,15 +12,4 @@ resultado da operação (soma ou multiplicação); Após isso, o programa volta 
 (ler código de operação).
 
 
-
-#include <stdlib.h>
-#include <stdio.h>
-
-
-
-void le(int *v, int n){
-    int i;
-    for(i=0; i<n; i++){
-        scanf("%d ",&v[i]);
-    }
     

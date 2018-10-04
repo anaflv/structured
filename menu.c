@@ -42,9 +42,8 @@ int mult(){
 int main(){
     
     int n, x, lowest;
-    int *v;
     
-    printf("Operação? ");
+    printf("Operacao? ");
     scanf("%d",&n);
     
     
@@ -66,12 +65,13 @@ int main(){
             
         }
         
-        printf("\nOperação? ");
+        printf("\nOperacao? ");
         scanf("%d",&n);
     }
     
-    printf("%d",lowest);
+    printf("%d\n",lowest);
     
+    return 0;
 }
 
 
