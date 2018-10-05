@@ -47,8 +47,9 @@ void imprime(double  *v, int n){
 
 double euclidean(double *v, int n){
     
-    int i,b;
+    double b;
     double s = 0;
+    int i;
     i =0;
     
     
@@ -66,7 +67,7 @@ double euclidean(double *v, int n){
 
 double *invert(double *v, double *v2, int a, int b){
     
-    if(a>=b){
+    if(a>b){
         return v2;
     } else {
         double i;
