@@ -8,6 +8,9 @@
 #include <stdbool.h>
 
 
+//todo: change all function names to english
+//to compile: gcc -Wall menuvetor.c -o menuvetor -lm
+
 
 
 void le(double *v, int n){
@@ -49,7 +52,6 @@ double euclidean(double *v, int n){
     i =0;
     
     
-    
     for(i = 0; i<n/2; i++){
         b = v[i] - v[n/2 + i];
         s += b*b;
@@ -62,16 +64,16 @@ double euclidean(double *v, int n){
 
 
 
-double *invert(double *v, int a, int b){
+double *invert(double *v, double *v2, int a, int b){
     
     if(a>=b){
-        return v;
+        return v2;
     } else {
         double i;
         i = v[a];
-        v[a] = v[b];
-        v[b] = i;
-        return invert(v, a + 1, b -1);
+        v2[a] = v[b];
+        v2[b] = i;
+        return invert(v, v2, a + 1, b -1);
     }
 }
 
@@ -81,13 +83,19 @@ double *sum_inverted(double *v, int n){
     double *t;
     t = malloc (n/2 * sizeof (double));
     
-    v = invert(v, n/2, n-1);
+    double *v2;
+    v2 = malloc (n * sizeof (double));
+    v2 = invert(v, v2, n/2, n-1);
+    
     
     int i;
     
     for (i = 0; i < n/2; i++){
-        t[i] = v[i] + v[n/2 + i];
+        t[i] = v[i] + v2[n/2 + i];
     }
+    
+    free(v2);
+    
     
     return t;
     
@@ -98,9 +106,7 @@ double *sum_inverted(double *v, int n){
 int main(){
     
     int n, next;
-    
     scanf("%d",&n);
-   
     
     double *v;
     v = malloc (10 * sizeof (double));
@@ -140,6 +146,9 @@ int main(){
                 imprime(x,n/2);
             }
             free(x);
+        }
+        else if (next == 4){
+            imprime(v, n);
         }
 
         printf("Operacao? ");
