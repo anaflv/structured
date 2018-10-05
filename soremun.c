@@ -54,9 +54,6 @@ int main(){
     a = malloc(4 * sizeof (char));
     
     
-    
-    
-    
     printf("%c",a[0]);
 
     
