@@ -2,10 +2,11 @@
 // Ana Flávia de Araujo
 //11024513
 
-
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+
 
 
 
@@ -38,6 +39,25 @@ void imprime(double  *v, int n){
         printf("%0.1lf ", v[i]);
     }
     printf("%0.1lf\n",v[n-1]);
+}
+
+
+double euclidean(double *v, int n){
+    
+    int i,b;
+    double s = 0;
+    i =0;
+    
+    
+    
+    for(i = 0; i<n/2; i++){
+        b = v[i] - v[n/2 + i];
+        s += b*b;
+    }
+    
+     
+    s = sqrt (s);
+    return s;
 }
 
 
@@ -86,7 +106,7 @@ int main(){
     v = malloc (10 * sizeof (double));
     le(v,n);
     
-    
+    printf("Operacao? ");
     scanf("%d",&next);
     
     
@@ -100,7 +120,13 @@ int main(){
         }
         
         else if(next == 2){
-            //Euclidian
+            
+            if(n % 2 != 0){
+                printf("ERRO\n");
+            } else {
+                double e = euclidean(v, n);
+                printf("%0.1lf\n",e);
+            }
         }
         
         else if (next == 3){
@@ -116,7 +142,7 @@ int main(){
             free(x);
         }
 
-         
+        printf("Operacao? ");
         scanf("%d",&next);
     }
     
