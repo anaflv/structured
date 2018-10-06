@@ -5,58 +5,35 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
-
-int sum1(){
-    int i,j,r;
+char* reverse(char* n, int a, int b){
     
-    scanf("%d %d",&i,&j);
-    r = i+j;
-    printf("%d",r);
+    if(b <= a){
+        return n;
+    }
     
-    return r;
+    char c = n[a];
+    n[a] = n[b];
+    n[b] = c;
+    reverse(n, a+1, b-1);
 }
-
-int sum2(){
-    int a,b,c,r;
-    scanf("%d %d %d",&a, &b, &c);
-    r = a+b+c;
-    printf("%d",r);
-    
-    return r;
-}
-
-int mult(){
-    int a,b,r;
-    scanf("%d %d",&a, &b);
-    
-    r = a*b;
-    printf("%d",r);
-    return r;
-}
-
-
 
 
 int main(){
     
+    
     char* n;
-    int x, lowest;
+    n = malloc(5 * (sizeof (char)));
     
     scanf("%s",n);
+    int i = strlen(n);
     
+    n = reverse(n, 0, strlen(n) - 1);
+    printf("%s",n);
     
-    int *v;
-    v = malloc (10 * sizeof (int));
-    
-    char *a;
-    a = malloc(4 * sizeof (char));
-    
-    
-    printf("%c",a[0]);
-
-    
+    free(n);
     
     return 0;
 }
