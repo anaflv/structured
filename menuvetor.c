@@ -65,41 +65,31 @@ double euclidean(double *v, int n){
 
 
 
-double *invert(double *v, double *v2, int a, int b){
+void invert(double *v, int a, int b){
     
-    if(a>b){
-        return v2;
-    } else {
+    if(a < b){
         double i;
         i = v[a];
-        v2[a] = v[b];
-        v2[b] = i;
-        return invert(v, v2, a + 1, b -1);
+        v[a] = v[b];
+        v[b] = i;
+        invert(v, a + 1, b -1);
     }
 }
 
 
-double *sum_inverted(double *v, int n){
+void sum_inverted(double *v, int n){
     
-    double *t;
-    t = malloc (n/2 * sizeof (double));
     
-    double *v2;
-    v2 = malloc (n * sizeof (double));
-    v2 = invert(v, v2, n/2, n-1);
-    
+    invert(v, n/2, n-1);
     
     int i;
-    
-    for (i = 0; i < n/2; i++){
-        t[i] = v[i] + v2[n/2 + i];
+    for (i = 0; i < n/2 - 1; i++){
+        printf("%0.1lf ", v[i] + v[n/2 + i]);
     }
     
-    free(v2);
+    printf("%0.1lf\n",v[i] +  v[n/2 + i]);
     
-    
-    return t;
-    
+    invert(v, n/2, n-1);
     
 }
 
@@ -110,7 +100,7 @@ int main(){
     scanf("%d",&n);
     
     double *v;
-    v = malloc (10 * sizeof (double));
+    v = malloc (n * sizeof (double));
     le(v,n);
     
     printf("Operacao? ");
@@ -137,16 +127,12 @@ int main(){
         }
         
         else if (next == 3){
-            double *x;
-            x = malloc (10 * sizeof (double));
             
             if(n % 2 != 0){
                 printf("ERRO\n");
             } else {
-                x = sum_inverted(v, n);
-                imprime(x,n/2);
+                sum_inverted(v, n);
             }
-            free(x);
         }
         else if (next == 4){
             imprime(v, n);
