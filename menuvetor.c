@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
-//todo: change all function names to english
 //to compile: gcc -Wall menuvetor.c -o menuvetor -lm
 
 
@@ -143,6 +141,7 @@ int main(){
     }
     
         
+    free(v);
     printf("FIM\n");
     
     return 0;
