@@ -27,6 +27,11 @@ int main(){
     int *p;
     p = malloc (5 * sizeof(int));
     
+    int i;
+    for(i=0; i<5;i++){
+        scanf("%d",&p[i]);
+    }
+    
     int d = max_array(p, 5);
     
     
