@@ -14,11 +14,11 @@ void imprime_multiplos(int b, int n);
 #include <stdlib.h>
 
 
-int imprime_multiplos(int b, int n){
+void imprime_multiplos(int b, int n){
     
     if(n == 1){
-        printf("%d\n",b*n);
-        return b*n;
+        printf("%d\n",b);
+        return;
     }
     
     imprime_multiplos(b,n-1); 
