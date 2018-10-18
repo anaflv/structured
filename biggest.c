@@ -1,44 +1,25 @@
 
-// Faça uma função recursiva que receba um
-// vetor de double e retorne qual é o maior valor
-// neste vetor:
-
-
 #include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 
 
+int semente; // declare a semente como variável global do programa
 
-int max(int a, int b) {
-    return a > b ? a : b;
+
+int rand2() {
+    int lim = 99999;
+    
+    semente = (semente * 32719 + 3) % 32749;
+    return ((semente % lim) + 1);
 }
-
-
-int max_array(int *p, size_t size)
-{
-    if (size > 1)   return max(p[size-1], max_array(p, size-1));
-    else            return *p;
-}
-
 
 int main(){
     
-
-    int *p;
-    p = malloc (5 * sizeof(int));
+    int r = rand() % 20;
     
-    int i;
-    for(i=0; i<5;i++){
-        scanf("%d",&p[i]);
-    }
-    
-    int d = max_array(p, 5);
-    
-    
-    printf("\n%d",d);
+    n = 4;
+    int m[n][n];
     
     return 0;
     
 }
-
-
