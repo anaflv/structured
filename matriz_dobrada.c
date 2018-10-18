@@ -3,8 +3,17 @@
 #include <time.h>
 #include <stdlib.h>
 
-void imprimir(int n, int v[n][n]){
+void imprimir(int n1, int n2, int v[n1][n2]){
     
+    
+    int i,j;
+    for(i=0;i<n1;i++){
+        for(j=0;j<n2;j++){
+            printf("%02d ",v[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
     
 }
 
@@ -19,7 +28,6 @@ int main(){
     }
 
 
-    r = 4;
     
     printf("%d\n",r);
     int v[r][r];
@@ -32,15 +40,8 @@ int main(){
         }
     }
     
+    imprimir(r, r, v);
     
-    for(i=0; i<r; i++){
-        for(j=0; j<r; j++){
-            printf("%d ",v[i][j]);
-        }
-        printf("\n");
-    }
-    
-    printf("\n");
     int v2[r][r/2];
     
     
@@ -51,14 +52,9 @@ int main(){
     }
     
     
-    for(i=0; i<r; i++){
-        for(j=0; j<r/2; j++){
-            printf("%d ",v2[i][j]);
-        }
-        printf("\n");
-    }
+    imprimir(r, r/2, v2);
     
-    printf("\n");
+    
     int v3[r/2][r/2];
     
 
@@ -69,19 +65,9 @@ int main(){
     }
     
     
-    for(i=0; i<r/2; i++){
-        for(j=0; j<r/2; j++){
-            printf("%d ",v3[i][j]);
-        }
-        printf("\n");
-    }
-    
+    imprimir(r/2, r/2, v3);
     
     printf("\n");
-    
-    
-    
-    
     
     
     return 0;
