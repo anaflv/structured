@@ -35,6 +35,7 @@ void print_m(int lado,int m[][lado]){
         }  
         printf("\n");
     }
+    printf("\n");
 }
 
 void row_diagonal(int lado, int m[][lado]){
@@ -55,21 +56,43 @@ void row_diagonal(int lado, int m[][lado]){
     
 }
 
+void column_diagonal(int lado, int m[][lado]){
+    
+    int i,j, a;
+    int sum_others;
+    
+    for(j=0; j <lado; j++){
+        sum_others = 0;
+        for(i =0;  i<lado; i++){
+            if(i != j){
+                a = m[i][j] >= 0 ? m[i][j] : (0 - m[i][j]);
+                sum_others = sum_others + a;
+            }
+        }
+        m[j][j] = m[j][j] > sum_others ? m[j][j] : (sum_others + 1);
+    }
+    
+    
+}
+
+
+
 
 int main(){
     
     int a;
     int min,max,lado;
     
-    semente = 123;
-    min = 5;
-    max = 40;
-    lado = 4;
-
+    scanf("%d",&semente);
+    scanf("%d",&min);
+    scanf("%d",&max);
+    scanf("%d",&lado);
+    
     
     int m[lado][lado];
     int i, j;
     
+    int input;
     
     for (i=0; i<lado; i++){
         for(j=0; j<lado; j++){
@@ -77,17 +100,21 @@ int main(){
         }
     }
     
-    row_diagonal(lado, m);
-    print_m(lado, m);
+    scanf("%d",&input);
     
-    //fazer matriz
-    
-    //calcular diagonal
-    
-    //encerra program
-    
-    
-    
+    while(input != 0){
+        if(input == 1){
+            print_m(lado, m);
+        }
+        else if (input == 2){
+            row_diagonal(lado, m);
+        }
+        else if (input == 3){
+            column_diagonal(lado, m);
+        }
+        
+        scanf("%d",&input);
+    }
     
     
     return 0;
