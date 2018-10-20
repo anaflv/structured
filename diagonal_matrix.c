@@ -14,7 +14,7 @@ que a operação de código zero seja recebida, quando o programa é encerrado):
 #include <stdio.h>
 
 
-int semente; // declare a semente como variável global do programa
+int semente; 
 
 
 int rand2() {
@@ -23,13 +23,35 @@ int rand2() {
     return ((semente % lim) + 1);
 }
 
+void printm(){
+    
+}
+
 int main(){
     
+    int a;
+    int min,max,lado;
     
-    printf("hello");
+    semente = 200;
+    min = 2;
+    max = 10;
+    lado = 3;
+
     
-    scanf("%d",semente);
-    printf("%d",semente);
+    int i;
+    for (i=0; i<10; i++){
+        printf("%d\n",min + rand2() % (max - min + 1));
+    }
+    
+    //fazer matriz
+    
+    //calcular diagonal
+    
+    //encerra program
+    
+    
+    
+    
     
     return 0;
     
