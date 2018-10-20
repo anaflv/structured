@@ -23,8 +23,15 @@ int rand2() {
     return ((semente % lim) + 1);
 }
 
-void printm(){
+void printm(int m[][lado], int lado){
     
+    int i,j;
+    for(i=0; i<lado; i++){
+        for(j=0; j<lado; j++){
+            printf("%d ",v[i][j]);
+        }  
+        printf("\n");
+    }
 }
 
 int main(){
