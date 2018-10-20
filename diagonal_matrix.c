@@ -40,18 +40,20 @@ void print_m(int lado,int m[][lado]){
 
 void row_diagonal(int lado, int m[][lado]){
     
-    int i,j;
+    int i,j,a;
     int sum_others;
     
     for(i=0; i < lado; i++){
         sum_others = 0;
         for(j =0; j < lado; j++){
             if(j != i){
-                sum_others = sum_others + m[i][j];
+                a = m[i][j] >= 0 ? m[i][j] : (0 - m[i][j]);
+                sum_others = sum_others + a;
             }
         }
         
-        m[i][i] = m[i][i] > sum_others ? m[i][i] : (sum_others + 1);
+        a = m[i][i] >= 0 ? m[i][i] : (0 - m[i][i]);
+        m[i][i] = a > sum_others ? m[i][i] : (sum_others + 1);
     }
     
 }
@@ -69,7 +71,9 @@ void column_diagonal(int lado, int m[][lado]){
                 sum_others = sum_others + a;
             }
         }
-        m[j][j] = m[j][j] > sum_others ? m[j][j] : (sum_others + 1);
+        
+        a = m[j][j] >= 0 ? m[j][j] : (0 - m[j][j]);
+        m[j][j] = a > sum_others ? m[j][j] : (sum_others + 1);
     }
     
     
