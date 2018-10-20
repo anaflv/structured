@@ -25,6 +25,12 @@ int rand2() {
 
 int main(){
     
+    
+    printf("hello");
+    
+    scanf("%d",semente);
+    printf("%d",semente);
+    
     return 0;
     
 }

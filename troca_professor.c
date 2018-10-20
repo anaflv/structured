@@ -6,6 +6,8 @@ aparecer no máximo uma vez na frase;
 
 */
 
+//incomplete!!
+
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
