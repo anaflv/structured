@@ -1,5 +1,8 @@
 /*
 
+Ana Flávia de Araujo
+11024513
+
 1. Lê quatro inteiros:
 1. Semente: para o gerador de número aleatório;
 2. Mínimo e máximo: faixa de valores para ser usada na geração de
@@ -23,32 +26,44 @@ int rand2() {
     return ((semente % lim) + 1);
 }
 
-void printm(int m[][lado], int lado){
+void print_m(int lado,int m[][lado]){
     
     int i,j;
     for(i=0; i<lado; i++){
         for(j=0; j<lado; j++){
-            printf("%d ",v[i][j]);
+            printf("%d ",m[i][j]);
         }  
         printf("\n");
     }
 }
+
+void row_diagonal(){
+    
+}
+
 
 int main(){
     
     int a;
     int min,max,lado;
     
-    semente = 200;
+    semente = 100;
     min = 2;
     max = 10;
     lado = 3;
 
     
-    int i;
-    for (i=0; i<10; i++){
-        printf("%d\n",min + rand2() % (max - min + 1));
+    int m[lado][lado];
+    int i, j;
+    
+    
+    for (i=0; i<lado; i++){
+        for(j=0; j<lado; j++){
+            m[i][j] = min + rand2() % (max - min + 1);
+        }
     }
+    
+    print_m(lado, m);
     
     //fazer matriz
     
