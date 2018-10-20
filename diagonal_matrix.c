@@ -37,7 +37,21 @@ void print_m(int lado,int m[][lado]){
     }
 }
 
-void row_diagonal(){
+void row_diagonal(int lado, int m[][lado]){
+    
+    int i,j;
+    int sum_others;
+    
+    for(i=0; i < lado; i++){
+        sum_others = 0;
+        for(j =0; j < lado; j++){
+            if(j != i){
+                sum_others = sum_others + m[i][j];
+            }
+        }
+        
+        m[i][i] = m[i][i] > sum_others ? m[i][i] : (sum_others + 1);
+    }
     
 }
 
@@ -47,10 +61,10 @@ int main(){
     int a;
     int min,max,lado;
     
-    semente = 100;
-    min = 2;
-    max = 10;
-    lado = 3;
+    semente = 123;
+    min = 5;
+    max = 40;
+    lado = 4;
 
     
     int m[lado][lado];
@@ -63,6 +77,7 @@ int main(){
         }
     }
     
+    row_diagonal(lado, m);
     print_m(lado, m);
     
     //fazer matriz
