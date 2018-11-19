@@ -34,11 +34,24 @@ void print_vector(int *vector, int n){
     return;
   }
   
-  
   print_vector(vector, n-1);
   printf("%d ",vector[n]);
 
 }
+
+void read_vector(int *b, int n){
+  
+  
+  if (n == 0){
+    scanf("%d",&b[n]);
+    return;
+  }
+  
+  read_vector(b, n-1);
+  scanf("%d",&b[n]);
+  
+}
+
 
 
 
@@ -57,6 +70,13 @@ int main() {
   }
   
   print_vector(vector, 4);
+  
+  int  *b;
+  b = malloc(5 * sizeof(int));
+  
+  //read_vector(b,4);
+  //print_vector(b, 4);
+  
   
   
   
