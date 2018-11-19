@@ -18,6 +18,7 @@ void inicia_menu(int *vetor, int n);
 
 //returns factorial
 double factorial(double n){
+  
   if (n == 1){
     return 1;
   }
@@ -26,42 +27,40 @@ double factorial(double n){
 }
 
 
-void print_vector(int *vector, int n){
+void print_vetor(int *vetor, int n){
   
-
   if (n == 0){
-    printf("%d ",vector[n]);
+    printf("%d ",vetor[n]);
     return;
   }
   
-  print_vector(vector, n-1);
-  printf("%d ",vector[n]);
+  print_vetor(vetor, n-1);
+  printf("%d ",vetor[n]);
 
 }
 
-void read_vector(int *b, int n){
-  
+void read_vetor(int *b, int n){
   
   if (n == 0){
     scanf("%d",&b[n]);
     return;
   }
   
-  read_vector(b, n-1);
+  read_vetor(b, n-1);
   scanf("%d",&b[n]);
   
 }
 
-//doubles the vector
-void doubles(int *vector, int n){
+//doubles the vetor
+void doubles(int *vetor, int n){
   
-  vector[n] = vector[n] * 2;
+  vetor[n] = vetor[n] * 2;
   
   if(n == 0){
     return;
   }
   
-  doubles(vector, n-1);
+  doubles(vetor, n-1);
   
 }
 
@@ -85,7 +84,7 @@ double taylor(double x, double m){
   
   
   double a = power(-1,m) / factorial(2 * m + 1) * power(x, 2 * m + 1);
-  //printf("%lf\n",a);
+  
   
   if (m == 0){
     return a;
@@ -98,35 +97,8 @@ double taylor(double x, double m){
 
 
 int main() {
+  
   inicia_menu(NULL, 0);
-  
-  int *vector;
-  vector = malloc(5 * sizeof(int));
-  
-  int i;
-  for (i=0; i<5; i++){
-    vector[i] = i+1;
-  }
-  
-  print_vector(vector, 4);
-  printf("\n");
-  
-  doubles(vector, 4);
-  
-  print_vector(vector, 4);
-  
-  
-  
-  printf("%lf",taylor(1.5708, 8));
-  
-  free(vector);
-  
-  // int  *b;
-  // b = malloc(5 * sizeof(int));
-  
-  //read_vector(b,4);
-  //print_vector(b, 4);
-  
 
   return 0;
 }
@@ -135,10 +107,52 @@ int main() {
 void inicia_menu(int *vetor, int n) {
  // Implementacao da funcao
  
- 
+  
+  printf("Cod: ");
+  
+  int input;
+  scanf("%d",&input);
   
   
+  if (input == 0){
+    free(vetor);
+    return;
+  }
   
- 
+  //Lê um número x e imprime seu fatorial. Quebre uma linha ao final.
+  else if (input == 1){
+    double a;
+    scanf("%lf",&a);
+    printf("%lf\n",factorial(a));
+  }
+  
+  else if (input == 2){
+    double x,m;
+    scanf("%lf",&x);
+    scanf("%lf",&m);
+    
+    printf("%.2lf\n",taylor(x,m));
+  }
+  
+  //adds numbers to array
+  else if (input == 3){
+    scanf("%d",&n);
+    vetor = malloc(n * sizeof(int));
+    read_vetor(vetor,n-1);
+  }
+  
+  //prints current array
+  else if (input == 4){
+    print_vetor(vetor, n-1);
+    printf("\n");
+  }
+  
+  //doubles numbers in array
+  else if (input == 5){
+    doubles(vetor, n);
+  }
+  
+  
+  inicia_menu(vetor, n);
   
 }
