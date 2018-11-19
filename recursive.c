@@ -52,6 +52,17 @@ void read_vector(int *b, int n){
   
 }
 
+void times_four(int *vector, int n){
+  
+  vector[n] = vector[n] * 4;
+  
+  if(n == 0){
+    return;
+  }
+  
+  times_four(vector, n-1);
+  
+}
 
 
 
@@ -70,9 +81,17 @@ int main() {
   }
   
   print_vector(vector, 4);
+  printf("\n");
   
-  int  *b;
-  b = malloc(5 * sizeof(int));
+  times_four(vector, 4);
+  
+  print_vector(vector, 4);
+  
+  
+  free(vector);
+  
+  // int  *b;
+  // b = malloc(5 * sizeof(int));
   
   //read_vector(b,4);
   //print_vector(b, 4);
