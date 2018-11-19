@@ -6,8 +6,7 @@
 
 int s(char* c, int n){
     
-    
-    
+
     if(c[n] == '\0'){
         return 0;
     }
