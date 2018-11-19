@@ -17,7 +17,7 @@ void inicia_menu(int *vetor, int n);
 
 
 //returns factorial
-int factorial(int n){
+double factorial(double n){
   if (n == 1){
     return 1;
   }
@@ -67,11 +67,38 @@ void doubles(int *vector, int n){
 
 
 
+double power(double n, int p){
+  
+  if (p == 0) {
+    return 1;
+  }
+  
+  if(p == 1){
+    return n;
+  }
+   
+  return n * power(n, p-1);
+}
+
+
+double taylor(double x, double m){
+  
+  
+  double a = power(-1,m) / factorial(2 * m + 1) * power(x, 2 * m + 1);
+  //printf("%lf\n",a);
+  
+  if (m == 0){
+    return a;
+  }
+  
+  return a + taylor(x, m-1);
+  
+}
+
+
 
 int main() {
   inicia_menu(NULL, 0);
-  
-  printf("%d\n",factorial(5));
   
   int *vector;
   vector = malloc(5 * sizeof(int));
@@ -89,6 +116,9 @@ int main() {
   print_vector(vector, 4);
   
   
+  
+  printf("%lf",taylor(1.5708, 8));
+  
   free(vector);
   
   // int  *b;
@@ -97,15 +127,18 @@ int main() {
   //read_vector(b,4);
   //print_vector(b, 4);
   
-  
-  
-  
+
   return 0;
 }
 
 
 void inicia_menu(int *vetor, int n) {
  // Implementacao da funcao
+ 
+ 
+  
+  
+  
  
   
 }
