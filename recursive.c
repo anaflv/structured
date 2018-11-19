@@ -52,15 +52,16 @@ void read_vector(int *b, int n){
   
 }
 
-void times_four(int *vector, int n){
+//doubles the vector
+void doubles(int *vector, int n){
   
-  vector[n] = vector[n] * 4;
+  vector[n] = vector[n] * 2;
   
   if(n == 0){
     return;
   }
   
-  times_four(vector, n-1);
+  doubles(vector, n-1);
   
 }
 
@@ -83,7 +84,7 @@ int main() {
   print_vector(vector, 4);
   printf("\n");
   
-  times_four(vector, 4);
+  doubles(vector, 4);
   
   print_vector(vector, 4);
   
