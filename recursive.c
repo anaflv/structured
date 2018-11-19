@@ -7,6 +7,10 @@ Faça um programa da seguinte forma:
 3. Volta ao passo 1 para ler outro código de operação.
 
 
+Ana Flávia de Araujo
+11024513
+
+
 */
 
 #include <stdlib.h>
@@ -85,7 +89,6 @@ double taylor(double x, double m){
   
   double a = power(-1,m) / factorial(2 * m + 1) * power(x, 2 * m + 1);
   
-  
   if (m == 0){
     return a;
   }
@@ -119,11 +122,11 @@ void inicia_menu(int *vetor, int n) {
     return;
   }
   
-  //Lê um número x e imprime seu fatorial. Quebre uma linha ao final.
+  //Reads factorial of a number
   else if (input == 1){
     double a;
     scanf("%lf",&a);
-    printf("%lf\n",factorial(a));
+    printf("%.0lf\n",factorial(a));
   }
   
   else if (input == 2){
